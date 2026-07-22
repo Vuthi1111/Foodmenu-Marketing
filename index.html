@@ -79,9 +79,19 @@
       padding-bottom: 0.2em;
       display: inline;
     }
+    
+    /* Prevent mobile horizontal scroll */
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+    }
   </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-800 antialiased overflow-x-hidden">
+
+  <!-- Main Wrapper to kill horizontal scroll -->
+  <div class="w-full overflow-hidden relative">
 
   <!-- Background Blobs -->
   <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
@@ -461,6 +471,8 @@
       </div>
     </div>
   </footer>
+  
+  </div> <!-- End Main Wrapper -->
 
   <script>
     AOS.init({
