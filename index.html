@@ -60,12 +60,6 @@
       -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     }
-    .text-gradient {
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-image: linear-gradient(to right, #0ea5e9, #3b82f6, #8b5cf6);
-    }
     .bg-grid {
       background-size: 40px 40px;
       background-image: linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
@@ -73,6 +67,18 @@
     }
     .animation-delay-2000 { animation-delay: 2s; }
     .animation-delay-4000 { animation-delay: 4s; }
+    
+    /* Fix Khmer/CJK text clipping */
+    .hero-title {
+      line-height: 1.4 !important;
+      overflow: visible !important;
+      padding-bottom: 0.2em;
+    }
+    .text-gradient {
+      line-height: 1.4 !important;
+      padding-bottom: 0.2em;
+      display: inline;
+    }
   </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-800 antialiased overflow-x-hidden">
@@ -139,7 +145,7 @@
           V1.0 is now live for Cambodian Restaurants
         </div>
         
-        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
+        <h1 class="hero-title text-5xl md:text-7xl font-extrabold tracking-tight mb-8">
           Stop losing 20% to <br/>
           <span class="text-gradient">delivery apps.</span>
         </h1>
