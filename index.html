@@ -108,15 +108,15 @@
           <!-- Language Switcher -->
           <div class="relative" id="lang-switcher">
             <button onclick="toggleLangMenu()" class="flex items-center gap-2 px-3 py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium text-sm transition">
-              <span id="current-flag">🇰🇭</span>
-              <span id="current-lang">KH</span>
+              <span id="current-flag">🇬🇧</span>
+              <span id="current-lang">EN</span>
               <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div id="lang-menu" class="hidden absolute right-0 mt-2 w-44 bg-white rounded-xl shadow-xl border border-slate-100 py-2 z-50">
-              <button onclick="switchLang('en')" class="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition">
+              <button onclick="switchLang('en')" class="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition bg-blue-50 text-blue-600">
                 <span class="text-lg">🇬🇧</span> English
               </button>
-              <button onclick="switchLang('kh')" class="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition bg-blue-50 text-blue-600">
+              <button onclick="switchLang('kh')" class="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition">
                 <span class="text-lg">🇰🇭</span> ភាសាខ្មែរ
               </button>
               <button onclick="switchLang('zh')" class="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition">
@@ -665,7 +665,7 @@
       }
     };
 
-    let currentLang = 'kh';
+    let currentLang = 'en';
 
     function toggleLangMenu() {
       document.getElementById('lang-menu').classList.toggle('hidden');
@@ -762,8 +762,8 @@
       }
     });
 
-    // Default to Khmer
-    switchLang('kh');
+    // Default to English
+    switchLang('en');
   </script>
 </body>
 </html>
