@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telegram Storefront | Sell Anything</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Gradient Text */
+    .text-gradient {
+      background: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    /* Blob Animation */
+    @keyframes blob {
+      0% { transform: translate(0px, 0px) scale(1); }
+      33% { transform: translate(30px, -50px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+      100% { transform: translate(0px, 0px) scale(1); }
+    }
+    .animate-blob {
+      animation: blob 7s infinite;
+    }
+    .animation-delay-2000 {
+      animation-delay: 2s;
+    }
+    
+    /* Mockup placeholder styling */
+    .mockup-window {
+      border: 1px solid #e5e7eb;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      background: white;
+    }
+    .mockup-header {
+      background: #f3f4f6;
+      padding: 0.75rem;
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .mockup-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased overflow-x-hidden">
+
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <div class="flex items-center gap-2">
+          <i class="ph-fill ph-storefront text-3xl text-brand-500"></i>
+          <span class="font-bold text-xl tracking-tight">TeleStore</span>
+        </div>
+        <div class="hidden md:flex space-x-8">
+          <a href="#features" class="text-slate-600 hover:text-brand-500 font-medium transition">Features</a>
+          <a href="#dashboard" class="text-slate-600 hover:text-brand-500 font-medium transition">Dashboard</a>
+          <a href="#pricing" class="text-slate-600 hover:text-brand-500 font-medium transition">Pricing</a>
+        </div>
+        <div class="flex items-center">
+          <a href="#contact" class="bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-full font-medium transition shadow-lg shadow-slate-900/20 hover:scale-105 transform">
+            Get Started
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+    <!-- Background Decoration -->
+    <div class="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob"></div>
+    <div class="absolute top-0 -right-4 w-72 h-72 bg-cyan-300 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob animation-delay-2000"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-8" data-aos="fade-up">
+          Turn Telegram into a <br />
+          <span class="text-gradient">Powerful Storefront</span>
+        </h1>
+        <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+          Sell food, clothes, electronics, or services directly inside Telegram. No app downloads for your customers. Complete admin dashboard for you.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+          <a href="#contact" class="bg-brand-500 hover:bg-brand-600 text-white px-8 py-4 rounded-full font-semibold text-lg transition shadow-xl shadow-brand-500/30 flex items-center justify-center gap-2 hover:-translate-y-1 transform">
+            <i class="ph-bold ph-rocket-launch"></i> Start Selling Now
+          </a>
+          <a href="#contact" class="bg-white hover:bg-slate-50 text-slate-900 border border-slate-200 px-8 py-4 rounded-full font-semibold text-lg transition shadow-sm flex items-center justify-center gap-2 hover:-translate-y-1 transform">
+            <i class="ph-bold ph-play-circle"></i> View Demo
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Mockup -->
+      <div class="mt-20 mx-auto max-w-5xl" data-aos="zoom-y-out" data-aos-delay="400" data-aos-duration="1000">
+        <div class="mockup-window relative bg-slate-900 flex flex-col md:flex-row h-[500px]">
+          <!-- Browser dots -->
+          <div class="absolute top-0 w-full mockup-header bg-slate-800 border-slate-700 z-10">
+            <div class="mockup-dot bg-red-500"></div>
+            <div class="mockup-dot bg-yellow-500"></div>
+            <div class="mockup-dot bg-green-500"></div>
+          </div>
+          
+          <!-- Admin Side (Placeholder) -->
+          <div class="flex-1 p-8 pt-16 flex flex-col items-center justify-center border-r border-slate-800">
+            <i class="ph-duotone ph-chart-line-up text-6xl text-brand-500 mb-4"></i>
+            <h3 class="text-white font-semibold text-xl mb-2">Admin Dashboard</h3>
+            <p class="text-slate-400 text-center text-sm">Replace this area with a screenshot of your beautiful web dashboard.</p>
+          </div>
+          
+          <!-- Mobile App Side (Placeholder) -->
+          <div class="w-full md:w-[350px] bg-black p-4 flex flex-col items-center justify-center relative border-l border-slate-800">
+             <div class="w-[280px] h-[550px] border-4 border-slate-800 rounded-[2.5rem] bg-slate-900 flex items-center justify-center relative mt-8">
+               <!-- Notch -->
+               <div class="absolute top-0 w-32 h-6 bg-slate-800 rounded-b-2xl"></div>
+               <div class="text-center p-4">
+                 <i class="ph-duotone ph-device-mobile text-5xl text-purple-500 mb-4"></i>
+                 <h3 class="text-white font-medium text-lg mb-2">Customer App</h3>
+                 <p class="text-slate-400 text-xs">Replace with a screenshot of the Telegram Mini App.</p>
+               </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section id="features" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-slate-900" data-aos="fade-up">Everything you need to run your business</h2>
+        <p class="text-slate-600 mt-4 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Stop paying huge commissions to third-party platforms. Own your customer relationships and keep 100% of your profits.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-lg transition duration-300" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-14 h-14 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-2xl mb-6">
+            <i class="ph-fill ph-lightning"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Frictionless Ordering</h3>
+          <p class="text-slate-600">Customers buy directly inside Telegram using native Mini Apps. No new accounts, no downloads, zero friction.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-lg transition duration-300" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-14 h-14 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl mb-6">
+            <i class="ph-fill ph-chart-bar"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Real-time Admin Panel</h3>
+          <p class="text-slate-600">Manage orders, update menus, and view live sales analytics from any device, anywhere in the world.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-lg transition duration-300" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-14 h-14 rounded-xl bg-green-100 text-green-600 flex items-center justify-center text-2xl mb-6">
+            <i class="ph-fill ph-bell-ringing"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Instant Notifications</h3>
+          <p class="text-slate-600">You get pinged the second an order arrives. Customers get pinged when their order status changes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deep Dive 1: Admin -->
+  <section id="dashboard" class="py-24 bg-slate-50 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row items-center gap-16">
+        <div class="lg:w-1/2" data-aos="fade-right">
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Total control at your fingertips.</h2>
+          <p class="text-lg text-slate-600 mb-8">Our responsive web dashboard is built for speed. Process orders, analyze revenue trends, and update your product catalog in seconds.</p>
+          
+          <ul class="space-y-4">
+            <li class="flex items-center gap-3 text-slate-700">
+              <i class="ph-bold ph-check-circle text-brand-500 text-xl"></i> Real-time order Kanban board
+            </li>
+            <li class="flex items-center gap-3 text-slate-700">
+              <i class="ph-bold ph-check-circle text-brand-500 text-xl"></i> Drag-and-drop category sorting
+            </li>
+            <li class="flex items-center gap-3 text-slate-700">
+              <i class="ph-bold ph-check-circle text-brand-500 text-xl"></i> Daily & Weekly revenue charts
+            </li>
+            <li class="flex items-center gap-3 text-slate-700">
+              <i class="ph-bold ph-check-circle text-brand-500 text-xl"></i> Mobile-optimized for management on the go
+            </li>
+          </ul>
+        </div>
+        <div class="lg:w-1/2 w-full" data-aos="fade-left">
+          <!-- Placeholder for Admin Screenshot -->
+          <div class="bg-white p-2 rounded-2xl shadow-2xl border border-slate-200 transform rotate-2 hover:rotate-0 transition duration-500">
+            <div class="bg-slate-100 rounded-xl h-[400px] flex items-center justify-center flex-col text-slate-400">
+              <i class="ph-duotone ph-image text-5xl mb-2"></i>
+              <p>Place Admin Dashboard Screenshot Here</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="contact" class="py-24 bg-slate-900 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-brand-400 via-slate-900 to-slate-900"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6" data-aos="fade-up">Ready to upgrade your business?</h2>
+      <p class="text-xl text-slate-300 mb-10" data-aos="fade-up" data-aos-delay="100">Setup takes less than 24 hours. Start accepting orders directly from your customers without giving up your margins.</p>
+      
+      <div data-aos="fade-up" data-aos-delay="200">
+        <!-- Replace href with your actual telegram link or email -->
+        <a href="https://t.me/yourusername" target="_blank" class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-400 text-white px-10 py-5 rounded-full font-bold text-xl transition transform hover:scale-105 shadow-xl shadow-brand-500/20">
+          <i class="ph-fill ph-telegram-logo text-2xl"></i> Contact us on Telegram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-2 text-white">
+        <i class="ph-fill ph-storefront text-2xl text-brand-500"></i>
+        <span class="font-bold text-lg">TeleStore Platform</span>
+      </div>
+      <p class="text-sm">© 2024 Your Company Name. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- AOS Animation Init -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      offset: 50,
+      duration: 800,
+      easing: 'ease-out-cubic',
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 20) {
+        nav.classList.add('shadow-md');
+      } else {
+        nav.classList.remove('shadow-md');
+      }
+    });
+  </script>
+</body>
+</html>
