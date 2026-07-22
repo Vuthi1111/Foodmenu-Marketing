@@ -71,6 +71,8 @@
       background-image: linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
                         linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
     }
+    .animation-delay-2000 { animation-delay: 2s; }
+    .animation-delay-4000 { animation-delay: 4s; }
   </style>
 </head>
 <body class="bg-slate-50 font-sans text-slate-800 antialiased overflow-x-hidden">
@@ -96,7 +98,27 @@
           <a href="#features" class="text-slate-600 hover:text-blue-600 font-medium transition">Features</a>
           <a href="#pricing" class="text-slate-600 hover:text-blue-600 font-medium transition">Pricing</a>
         </div>
-        <div class="hidden md:flex">
+        <div class="hidden md:flex items-center gap-4">
+          <!-- Language Switcher -->
+          <div class="relative" id="lang-switcher">
+            <button onclick="toggleLangMenu()" class="flex items-center gap-2 px-3 py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium text-sm transition">
+              <span id="current-flag">🇰🇭</span>
+              <span id="current-lang">KH</span>
+              <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div id="lang-menu" class="hidden absolute right-0 mt-2 w-44 bg-white rounded-xl shadow-xl border border-slate-100 py-2 z-50">
+              <button onclick="switchLang('en')" class="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition">
+                <span class="text-lg">🇬🇧</span> English
+              </button>
+              <button onclick="switchLang('kh')" class="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition bg-blue-50 text-blue-600">
+                <span class="text-lg">🇰🇭</span> ភាសាខ្មែរ
+              </button>
+              <button onclick="switchLang('zh')" class="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition">
+                <span class="text-lg">🇨🇳</span> 中文
+              </button>
+            </div>
+          </div>
+
           <a href="#pricing" class="bg-slate-900 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-slate-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
             Book a Demo
           </a>
@@ -444,6 +466,223 @@
       offset: 50,
       duration: 800,
     });
+
+    // Language Switcher
+    const translations = {
+      en: {
+        navFeatures: "Features",
+        navPricing: "Pricing",
+        navDemo: "Book a Demo",
+        heroBadge: "V1.0 is now live for Cambodian Restaurants",
+        heroTitle1: "Stop losing 20% to",
+        heroTitle2: "delivery apps.",
+        heroSubtitle: "Launch your own direct-to-consumer ordering app right inside Telegram. Zero commission. Instant ABA payments. Trilingual support.",
+        heroCta1: "Start 14-Day Free Trial",
+        heroCta2: "View Open Source",
+        featTitle1: "The Framework",
+        featTitle2: "Everything you need to sell directly.",
+        featSubtitle: "Built specifically for the Cambodian F&amp;B market, handling local languages, payments, and workflows out of the box.",
+        feat1Title: "Telegram Mini App",
+        feat1Desc: "A beautiful, app-like storefront that opens directly inside Telegram. No downloads required for your customers.",
+        feat2Title: "Native ABA Pay",
+        feat2Desc: "Integrated ABA QR checkout. Customers order, scan, and you get paid instantly to your own account.",
+        feat3Title: "Trilingual (EN/KH/CN)",
+        feat3Desc: "Automatically serve locals, expats, and Chinese tourists. Your menu switches languages instantly.",
+        feat4Title: "Live Admin Dashboard",
+        feat4Desc: "Accept, prepare, and complete orders in real-time. Track your revenue and update your menu on the fly.",
+        feat5Title: "Zero Commission",
+        feat5Desc: "Why pay 20% to delivery apps? Pay a flat monthly fee and keep 100% of your sales.",
+        feat6Title: "Instant Notifications",
+        feat6Desc: "Customers get automated Telegram updates when their order is accepted, preparing, and ready.",
+        pricingTitle: "Simple, transparent pricing.",
+        pricingSubtitle: "No commissions. No hidden fees. Pick a plan that fits your restaurant.",
+        planStarter: "Starter",
+        planStarterDesc: "Perfect for small restaurants",
+        planGrowth: "Growth",
+        planGrowthDesc: "Best for growing restaurants",
+        planEnterprise: "Enterprise",
+        planEnterpriseDesc: "For chains & franchises",
+        planGetStarted: "Get Started",
+        planStartTrial: "Start Free Trial",
+        planContactSales: "Contact Sales",
+        ctaTitle: "Ready to take back your profits?",
+        ctaSubtitle: "Join the restaurants that have already moved away from high-commission platforms to direct Telegram ordering.",
+        ctaBtn: "Get Started Today",
+        footerRights: "© 2026 Chnemeas Ordering System."
+      },
+      kh: {
+        navFeatures: "លក្ខណៈពិសេស",
+        navPricing: "តម្លៃ",
+        navDemo: "កក់ Demo",
+        heroBadge: "V1.0 ឥឡូវនេះសម្រាប់ភោជនីយដ្ឋានកម្ពុជា",
+        heroTitle1: "ឈប់បាត់បង់ ២០% ឱ្យ",
+        heroTitle2: "កម្មវិធីបញ្ជារបស់អ្នកដទៃ",
+        heroSubtitle: "បង្កើតកម្មវិធីបញ្ជាផ្ទាល់ខ្លួនរបស់អ្នកនៅក្នុង Telegram។ គ្មានកម្រៃជើងសារ។ ABA Pay ភ្លាមៗ។ ៣ភាសា។",
+        heroCta1: "ចាប់ផ្ដើមឥតគិតថ្លៃ ១៤ថ្ងៃ",
+        heroCta2: "មើលកូដ",
+        featTitle1: "គ្រោងការណ៍",
+        featTitle2: "អ្វីគ្រប់យ៉ាងដែលអ្នកត្រូវការដើម្បីលក់ផ្ទាល់។",
+        featSubtitle: "សម្រាប់ទីផ្សារ F&amp;B កម្ពុជាពិសេស។",
+        feat1Title: "Telegram Mini App",
+        feat1Desc: "ហាងដ៏ស្អាតនៅក្នុង Telegram។ មិនត្រូវការទាញយកទេ។",
+        feat2Title: "ABA Pay",
+        feat2Desc: "ABA QR Checkout។ អតិថិជនបញ្ជាហើយបង់ប្រាក់ភ្លាមៗ។",
+        feat3Title: "៣ភាសា (EN/KH/CN)",
+        feat3Desc: "បម្រើជនជាតិខ្មែរ បរទេស និងភ្ញៀវចិន។ ម៉ឺនុយប្តូរភាសាភ្លាមៗ។",
+        feat4Title: "Dashboard ផ្ទាល់",
+        feat4Desc: "ទទួល រៀបចំ និងបញ្ចប់ការបញ្ជាដោយផ្ទាល់។",
+        feat5Title: "គ្មានកម្រៃជើងសារ",
+        feat5Desc: "បង់ថ្លៃរាប់ខែហើយរក្សាលុយ ១០០%។",
+        feat6Title: "ការជូនដំណឹងភ្លាមៗ",
+        feat6Desc: "អតិថិជនទទួលបានការជូនដំណឹង Telegram ដោយស្វ័យប្រវត្តិ។",
+        pricingTitle: "តម្លៃស្អាត និងថ្លៃ។",
+        pricingSubtitle: "គ្មានកម្រៃជើងសារ។ គ្មានថ្លៃលាក់។ ជ្រើសរើសផ្លាន។",
+        planStarter: "Starter",
+        planStarterDesc: "សម្រាប់ភោជនីយដ្ឋានតូច",
+        planGrowth: "Growth",
+        planGrowthDesc: "សម្រាប់ភោជនីយដ្ឋានកំពុងរីកចម្រើន",
+        planEnterprise: "Enterprise",
+        planEnterpriseDesc: "សម្រាប់សាខា និង franchise",
+        planGetStarted: "ចាប់ផ្ដើម",
+        planStartTrial: "ចាប់ផ្ដើមឥតគិតថ្លៃ",
+        planContactSales: "ទាក់ទងផ្សារ",
+        ctaTitle: "ត្រៀមខ្លួនដើម្បីយកប្រាក់ចំណេញរបស់អ្នកមកវិញ?",
+        ctaSubtitle: "ចូលរួមជាមួយភោជនីយដ្ឋានដែលបានឈប់ប្រើកម្មវិធីបញ្ជាខ្ពស់។",
+        ctaBtn: "ចាប់ផ្ដើមថ្ងៃនេះ",
+        footerRights: "© 2026 Chnemeas ប្រព័ន្ធបញ្ជា។"
+      },
+      zh: {
+        navFeatures: "功能",
+        navPricing: "价格",
+        navDemo: "预约演示",
+        heroBadge: "V1.0 已上线，专为柬埔寨餐厅打造",
+        heroTitle1: "别再让配送平台拿走",
+        heroTitle2: "20% 的利润。",
+        heroSubtitle: "在 Telegram 内直接创建您自己的点餐应用。零佣金。即时 ABA 支付。三语支持。",
+        heroCta1: "免费试用 14 天",
+        heroCta2: "查看源码",
+        featTitle1: "核心框架",
+        featTitle2: "直接销售所需的一切。",
+        featSubtitle: "专为柬埔寨餐饮市场打造，开箱即用的多语言、支付和工作流。",
+        feat1Title: "Telegram 小程序",
+        feat1Desc: "精美的店铺界面，直接在 Telegram 内打开。您的顾客无需下载任何应用。",
+        feat2Title: "原生 ABA Pay",
+        feat2Desc: "集成 ABA QR 结账。顾客下单、扫码，您即时收到款项。",
+        feat3Title: "三语支持 (EN/KH/CN)",
+        feat3Desc: "自动服务本地人、外籍人士和中国游客。菜单即时切换语言。",
+        feat4Title: "实时管理后台",
+        feat4Desc: "实时接受、准备和完成订单。跟踪收入并随时更新菜单。",
+        feat5Title: "零佣金",
+        feat5Desc: "为什么给配送平台支付 20%？支付月费，保留 100% 的销售额。",
+        feat6Title: "即时通知",
+        feat6Desc: "顾客在订单被接受、准备中和完成时自动收到 Telegram 更新。",
+        pricingTitle: "简单、透明的定价。",
+        pricingSubtitle: "零佣金。无隐藏费用。选择适合您餐厅的方案。",
+        planStarter: "入门版",
+        planStarterDesc: "适合小型餐厅",
+        planGrowth: "成长版",
+        planGrowthDesc: "适合发展中餐厅",
+        planEnterprise: "企业版",
+        planEnterpriseDesc: "适合连锁和加盟",
+        planGetStarted: "立即开始",
+        planStartTrial: "免费试用",
+        planContactSales: "联系销售",
+        ctaTitle: "准备好夺回您的利润了吗？",
+        ctaSubtitle: "加入已经告别高佣金平台、转向 Telegram 直接点餐的餐厅行列。",
+        ctaBtn: "今天就开始",
+        footerRights: "© 2026 Chnemeas 点餐系统。"
+      }
+    };
+
+    let currentLang = 'kh';
+
+    function toggleLangMenu() {
+      document.getElementById('lang-menu').classList.toggle('hidden');
+    }
+
+    function switchLang(lang) {
+      currentLang = lang;
+      const t = translations[lang];
+
+      // Update flag
+      const flags = { en: '🇬🇧', kh: '🇰🇭', zh: '🇨🇳' };
+      const langCodes = { en: 'EN', kh: 'KH', zh: 'ZH' };
+      document.getElementById('current-flag').textContent = flags[lang];
+      document.getElementById('current-lang').textContent = langCodes[lang];
+
+      // Update navbar
+      document.querySelector('a[href="#features"]').textContent = t.navFeatures;
+      document.querySelector('a[href="#pricing"]').textContent = t.navPricing;
+      document.querySelector('.bg-slate-900.text-white').textContent = t.navDemo;
+
+      // Hero
+      document.querySelector('.bg-blue-50.border-blue-100 span:last-child').parentElement.querySelector('span:last-child').nextElementSibling?.remove;
+      document.querySelector('.animate-ping').parentElement.parentElement.childNodes[2].textContent = '\n            ' + t.heroBadge + '\n          ';
+      document.querySelector('h1').innerHTML = t.heroTitle1 + '<br/><span class="text-gradient">' + t.heroTitle2 + '</span>';
+      document.querySelector('h1 + p').textContent = t.heroSubtitle;
+
+      // Hero CTAs
+      const heroCtas = document.querySelectorAll('section.relative.pt-32 a.bg-blue-600, section.relative.pt-32 a.bg-white');
+      if (heroCtas[0]) heroCtas[0].textContent = t.heroCta1;
+      if (heroCtas[1]) heroCtas[1].innerHTML = '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg> ' + t.heroCta2;
+
+      // Features
+      const featSection = document.getElementById('features');
+      featSection.querySelector('h2').textContent = t.featTitle1;
+      featSection.querySelector('h3').textContent = t.featTitle2;
+      featSection.querySelector('h3 + p').textContent = t.featSubtitle;
+
+      const featCards = featSection.querySelectorAll('.grid > div');
+      const featKeys = ['feat1', 'feat2', 'feat3', 'feat4', 'feat5', 'feat6'];
+      featCards.forEach((card, i) => {
+        card.querySelector('h4').textContent = t[featKeys[i] + 'Title'];
+        card.querySelector('p').textContent = t[featKeys[i] + 'Desc'];
+      });
+
+      // Pricing
+      const priceSection = document.getElementById('pricing');
+      priceSection.querySelector('h2').textContent = t.pricingTitle;
+      priceSection.querySelector('h2 + p').textContent = t.pricingSubtitle;
+
+      const priceCards = priceSection.querySelectorAll('.grid > div');
+      const planKeys = ['Starter', 'Growth', 'Enterprise'];
+      const btnKeys = ['planGetStarted', 'planStartTrial', 'planContactSales'];
+      priceCards.forEach((card, i) => {
+        card.querySelector('h3').textContent = t['plan' + planKeys[i]];
+        card.querySelector('h3 + p').textContent = t['plan' + planKeys[i] + 'Desc'];
+        card.querySelector('a').textContent = t[btnKeys[i]];
+      });
+
+      // CTA
+      const ctaSection = document.querySelector('.bg-blue-600');
+      ctaSection.querySelector('h2').textContent = t.ctaTitle;
+      ctaSection.querySelector('h2 + p').textContent = t.ctaSubtitle;
+      ctaSection.querySelector('a').textContent = t.ctaBtn;
+
+      // Footer
+      document.querySelector('footer p.text-slate-500').innerHTML = t.footerRights + ' Built by <a href="https://github.com/Vuthi1111" class="text-blue-400 hover:underline">Vuthi1111</a>.';
+
+      // Highlight active language
+      document.querySelectorAll('#lang-menu button').forEach(btn => {
+        btn.classList.remove('bg-blue-50', 'text-blue-600');
+      });
+      const langIndex = { en: 0, kh: 1, zh: 2 };
+      document.querySelectorAll('#lang-menu button')[langIndex[lang]].classList.add('bg-blue-50', 'text-blue-600');
+
+      // Close menu
+      document.getElementById('lang-menu').classList.add('hidden');
+    }
+
+    // Close lang menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const switcher = document.getElementById('lang-switcher');
+      if (!switcher.contains(e.target)) {
+        document.getElementById('lang-menu').classList.add('hidden');
+      }
+    });
+
+    // Default to Khmer
+    switchLang('kh');
   </script>
 </body>
 </html>
